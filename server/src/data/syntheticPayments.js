@@ -13,9 +13,21 @@ const FAILURE_REASONS = [
 ];
 
 const CUSTOMERS = [
-  "Aarav Shah", "Priya Nair", "Rohan Mehta", "Isha Kapoor", "Vikram Rao",
-  "Ananya Iyer", "Karan Malhotra", "Sneha Reddy", "Arjun Singh", "Divya Menon",
-  "Kabir Joshi", "Meera Pillai", "Yash Agarwal", "Riya Desai", "Nikhil Bose",
+  "Aarav Shah",
+  "Priya Nair",
+  "Rohan Mehta",
+  "Isha Kapoor",
+  "Vikram Rao",
+  "Ananya Iyer",
+  "Karan Malhotra",
+  "Sneha Reddy",
+  "Arjun Singh",
+  "Divya Menon",
+  "Kabir Joshi",
+  "Meera Pillai",
+  "Yash Agarwal",
+  "Riya Desai",
+  "Nikhil Bose",
 ];
 
 const PLANS = [
