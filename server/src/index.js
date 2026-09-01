@@ -16,7 +16,7 @@ app.use(
     // In deployment, set CLIENT_ORIGIN to your deployed frontend's URL
     // (e.g. https://paymend.vercel.app) to restrict access properly.
     origin: process.env.CLIENT_ORIGIN || true,
-  })
+  }),
 );
 app.use(express.json());
 
