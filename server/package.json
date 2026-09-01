@@ -1,0 +1,20 @@
+{
+  "name": "paymend-server",
+  "version": "1.0.0",
+  "description": "PayMend — AI Revenue Recovery agent backend. Detects failed payments, classifies failures, picks bounded recovery actions, and logs an audit trail.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node src/data/seedRun.js"
+  },
+  "dependencies": {
+    "@clerk/backend": "^3.16.12",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nanoid": "^5.0.7",
+    "razorpay": "^2.9.4"
+  }
+}
