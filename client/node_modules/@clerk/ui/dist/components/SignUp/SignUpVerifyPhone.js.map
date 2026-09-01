@@ -1,0 +1,1 @@
+{"version":3,"file":"SignUpVerifyPhone.js","names":[],"sources":["../../../src/components/SignUp/SignUpVerifyPhone.tsx"],"sourcesContent":["import { SignUpPhoneCodeCard } from './SignUpPhoneCodeCard';\n\nexport const SignUpVerifyPhone = () => {\n  return <SignUpPhoneCodeCard />;\n};\n"],"mappings":";;;;AAEA,MAAa,0BAA0B;CACrC,OAAO,oBAAC,qBAAD,CAAsB;AAC/B"}

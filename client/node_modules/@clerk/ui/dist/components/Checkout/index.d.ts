@@ -1,0 +1,1 @@
+import { __internal_CheckoutProps } from "@clerk/shared/types";

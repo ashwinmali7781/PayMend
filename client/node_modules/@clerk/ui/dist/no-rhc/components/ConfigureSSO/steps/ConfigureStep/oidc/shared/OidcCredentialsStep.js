@@ -1,0 +1,97 @@
+import { localizationKeys } from "../../../../../../localization/localizationKeys.js";
+import { useFormControl } from "../../../../../../utils/useFormControl.js";
+import { useCardState } from "../../../../../../elements/contexts/index.js";
+import { Text } from "../../../../../../customizables/index.js";
+import { handleError } from "../../../../../../utils/errorHandler.js";
+import { Form } from "../../../../../../elements/Form.js";
+import { useConfigureSSO } from "../../../../ConfigureSSOContext.js";
+import { Step } from "../../../../elements/Step.js";
+import { useWizard } from "../../../../elements/Wizard/WizardContext.js";
+import { InnerStepCounter } from "../../../../elements/Wizard/InnerStepCounter.js";
+import { ActiveConnectionAlert } from "../../shared/ActiveConnectionAlert.js";
+import React from "react";
+import { Fragment as Fragment$1, jsx, jsxs } from "@emotion/react/jsx-runtime";
+
+//#region src/components/ConfigureSSO/steps/ConfigureStep/oidc/shared/OidcCredentialsStep.tsx
+const OidcCredentialsStep = ({ mode }) => {
+	const card = useCardState();
+	const { goNext, goPrev, isFirstStep } = useWizard();
+	const { enterpriseConnection, enterpriseConnectionMutations: { updateConnection } } = useConfigureSSO();
+	const oauthConfig = enterpriseConnection?.oauthConfig;
+	const clientIdField = useFormControl("clientId", oauthConfig?.clientId ?? "", {
+		type: "text",
+		label: localizationKeys("configureSSO.configureStep.oidcCustom.credentialsStep.clientId.label"),
+		placeholder: localizationKeys("configureSSO.configureStep.oidcCustom.credentialsStep.clientId.placeholder"),
+		isRequired: true
+	});
+	const clientSecretField = useFormControl("clientSecret", "", {
+		type: "password",
+		label: localizationKeys("configureSSO.configureStep.oidcCustom.credentialsStep.clientSecret.label"),
+		placeholder: localizationKeys("configureSSO.configureStep.oidcCustom.credentialsStep.clientSecret.placeholder"),
+		isRequired: true
+	});
+	const [isSubmitting, setIsSubmitting] = React.useState(false);
+	const canSubmit = clientIdField.value.trim().length > 0 && clientSecretField.value.trim().length > 0 && !isSubmitting;
+	const handleContinue = async () => {
+		if (!enterpriseConnection || !canSubmit) return;
+		card.setError(void 0);
+		setIsSubmitting(true);
+		try {
+			await updateConnection(enterpriseConnection.id, { oidc: {
+				clientId: clientIdField.value.trim(),
+				clientSecret: clientSecretField.value.trim(),
+				...mode === "discoveryUrl" && oauthConfig?.discoveryUrl !== void 0 ? { discoveryUrl: oauthConfig.discoveryUrl } : {},
+				...mode === "manual" && oauthConfig?.authUrl !== void 0 ? { authUrl: oauthConfig.authUrl } : {},
+				...mode === "manual" && oauthConfig?.tokenUrl !== void 0 ? { tokenUrl: oauthConfig.tokenUrl } : {},
+				...mode === "manual" && oauthConfig?.userInfoUrl !== void 0 ? { userInfoUrl: oauthConfig.userInfoUrl } : {}
+			} });
+			goNext();
+		} catch (err) {
+			handleError(err, [clientIdField, clientSecretField], card.setError);
+			setIsSubmitting(false);
+		}
+	};
+	return /* @__PURE__ */ jsxs(Fragment$1, { children: [
+		/* @__PURE__ */ jsx(Step.Header, {
+			title: localizationKeys("configureSSO.configureStep.oidcCustom.mainHeaderTitle"),
+			description: localizationKeys("configureSSO.configureStep.oidcCustom.credentialsStep.headerSubtitle"),
+			children: /* @__PURE__ */ jsx(InnerStepCounter, {})
+		}),
+		/* @__PURE__ */ jsx(Step.Body, { children: /* @__PURE__ */ jsxs(Step.Section, {
+			fill: true,
+			gap: 5,
+			children: [
+				/* @__PURE__ */ jsx(Text, {
+					as: "p",
+					colorScheme: "secondary",
+					localizationKey: localizationKeys("configureSSO.configureStep.oidcCustom.credentialsStep.paragraph")
+				}),
+				/* @__PURE__ */ jsx(Form.ControlRow, {
+					elementId: clientIdField.id,
+					children: /* @__PURE__ */ jsx(Form.PlainInput, { ...clientIdField.props })
+				}),
+				/* @__PURE__ */ jsx(Form.ControlRow, {
+					elementId: clientSecretField.id,
+					children: /* @__PURE__ */ jsx(Form.PasswordInput, { ...clientSecretField.props })
+				}),
+				/* @__PURE__ */ jsx(ActiveConnectionAlert, {})
+			]
+		}) }),
+		/* @__PURE__ */ jsxs(Step.Footer, { children: [
+			/* @__PURE__ */ jsx(Step.Footer.Reset, {}),
+			/* @__PURE__ */ jsx(Step.Footer.Previous, {
+				onClick: () => goPrev(),
+				isDisabled: isFirstStep || isSubmitting
+			}),
+			/* @__PURE__ */ jsx(Step.Footer.Continue, {
+				onClick: handleContinue,
+				isLoading: isSubmitting,
+				isDisabled: !canSubmit
+			})
+		] })
+	] });
+};
+
+//#endregion
+export { OidcCredentialsStep };
+//# sourceMappingURL=OidcCredentialsStep.js.map

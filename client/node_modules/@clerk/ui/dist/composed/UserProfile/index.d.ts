@@ -1,0 +1,17 @@
+import { UserProfileProvider } from "./UserProfileProvider.js";
+import { UserProfileAccountPanel } from "./Account.js";
+import { UserProfileSecurityPanel } from "./Security.js";
+import { UserProfileBillingPanel } from "./Billing.js";
+import { UserProfileAPIKeysPanel } from "./APIKeys.js";
+import { UserProfileProfileSection } from "./AccountProfile.js";
+import { UserProfileUsernameSection } from "./AccountUsername.js";
+import { UserProfileEmailSection } from "./AccountEmails.js";
+import { UserProfilePhoneSection } from "./AccountPhone.js";
+import { UserProfileConnectedAccountsSection } from "./AccountConnectedAccounts.js";
+import { UserProfileEnterpriseAccountsSection } from "./AccountEnterpriseAccounts.js";
+import { UserProfileWeb3Section } from "./AccountWeb3.js";
+import { UserProfilePasswordSection } from "./SecurityPassword.js";
+import { UserProfilePasskeysSection } from "./SecurityPasskeys.js";
+import { UserProfileMfaSection } from "./SecurityMfa.js";
+import { UserProfileActiveDevicesSection } from "./SecurityActiveDevices.js";
+import { UserProfileDeleteSection } from "./SecurityDelete.js";

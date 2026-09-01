@@ -1,0 +1,1 @@
+import { SignUpProps } from "@clerk/shared/types";

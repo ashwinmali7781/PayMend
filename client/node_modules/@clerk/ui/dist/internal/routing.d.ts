@@ -1,0 +1,13 @@
+import { RoutingStrategy } from "@clerk/shared/types";
+
+//#region src/internal/routing.d.ts
+type WithInternalRouting<T> = (Omit<T, 'routing' | 'path'> & {
+  path: string | undefined;
+  routing?: Extract<RoutingStrategy, 'path'>;
+}) | (Omit<T, 'routing' | 'path'> & {
+  path?: never;
+  routing?: Extract<RoutingStrategy, 'hash' | 'virtual'>;
+});
+//#endregion
+export { WithInternalRouting };
+//# sourceMappingURL=routing.d.ts.map

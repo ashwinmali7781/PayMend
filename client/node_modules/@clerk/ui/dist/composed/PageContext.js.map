@@ -1,0 +1,1 @@
+{"version":3,"file":"PageContext.js","names":[],"sources":["../../src/composed/PageContext.tsx"],"sourcesContent":["import { createContext } from 'react';\n\ntype PageId = 'account' | 'security' | 'general';\n\nexport const PageContext = createContext<PageId | null>(null);\n"],"mappings":";;;AAIA,MAAa,cAAc,cAA6B,IAAI"}

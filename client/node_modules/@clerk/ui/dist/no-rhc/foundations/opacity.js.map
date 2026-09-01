@@ -1,0 +1,1 @@
+{"version":3,"file":"opacity.js","names":[],"sources":["../../../src/foundations/opacity.ts"],"sourcesContent":["export const opacity = Object.freeze({\n  sm: '24%',\n  disabled: '50%',\n  inactive: '62%',\n} as const);\n"],"mappings":";AAAA,MAAa,UAAU,OAAO,OAAO;CACnC,IAAI;CACJ,UAAU;CACV,UAAU;AACZ,CAAU"}

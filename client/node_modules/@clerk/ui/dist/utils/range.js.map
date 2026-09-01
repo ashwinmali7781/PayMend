@@ -1,0 +1,1 @@
+{"version":3,"file":"range.js","names":[],"sources":["../../src/utils/range.ts"],"sourcesContent":["export const range = (min: number, max: number) => Array.from({ length: max - min + 1 }, (_, i) => min + i);\n"],"mappings":";AAAA,MAAa,SAAS,KAAa,QAAgB,MAAM,KAAK,EAAE,QAAQ,MAAM,MAAM,EAAE,IAAI,GAAG,MAAM,MAAM,CAAC"}

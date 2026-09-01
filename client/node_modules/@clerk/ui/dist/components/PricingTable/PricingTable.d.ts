@@ -1,0 +1,1 @@
+import { PricingTableProps } from "@clerk/shared/types";

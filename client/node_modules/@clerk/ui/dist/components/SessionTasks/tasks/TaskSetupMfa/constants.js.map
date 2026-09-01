@@ -1,0 +1,1 @@
+{"version":3,"file":"constants.js","names":[],"sources":["../../../../../src/components/SessionTasks/tasks/TaskSetupMfa/constants.ts"],"sourcesContent":["export const MFA_METHODS_TO_STEP: Record<'phone_code' | 'totp', number> = {\n  phone_code: 1,\n  totp: 2,\n};\n"],"mappings":";AAAA,MAAa,sBAA6D;CACxE,YAAY;CACZ,MAAM;AACR"}

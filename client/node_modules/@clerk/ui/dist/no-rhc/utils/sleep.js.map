@@ -1,0 +1,1 @@
+{"version":3,"file":"sleep.js","names":[],"sources":["../../../src/utils/sleep.ts"],"sourcesContent":["export const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));\n"],"mappings":";AAAA,MAAa,SAAS,OAAe,IAAI,SAAQ,MAAK,WAAW,GAAG,EAAE,CAAC"}

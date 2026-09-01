@@ -1,0 +1,1 @@
+import { InternalTheme, InternalThemeFoundations, defaultInternalThemeFoundations } from "./defaultFoundations.js";

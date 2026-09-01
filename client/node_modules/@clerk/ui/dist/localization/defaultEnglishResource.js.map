@@ -1,0 +1,1 @@
+{"version":3,"file":"defaultEnglishResource.js","names":[],"sources":["../../src/localization/defaultEnglishResource.ts"],"sourcesContent":["import { enUS } from '@clerk/localizations';\n\nexport const defaultResource = enUS;\n"],"mappings":";;;AAEA,MAAa,kBAAkB"}

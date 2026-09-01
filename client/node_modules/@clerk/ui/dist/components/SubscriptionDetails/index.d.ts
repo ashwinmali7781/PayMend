@@ -1,0 +1,1 @@
+import { __internal_SubscriptionDetailsProps } from "@clerk/shared/types";

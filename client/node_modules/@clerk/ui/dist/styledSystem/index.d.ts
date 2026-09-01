@@ -1,0 +1,1 @@
+import { InternalTheme } from "../foundations/defaultFoundations.js";

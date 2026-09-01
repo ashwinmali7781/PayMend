@@ -1,0 +1,124 @@
+import { localizationKeys } from "../../../../../../localization/localizationKeys.js";
+import { useFormControl } from "../../../../../../utils/useFormControl.js";
+import { useCardState } from "../../../../../../elements/contexts/index.js";
+import { handleError } from "../../../../../../utils/errorHandler.js";
+import { useConfigureSSO } from "../../../../ConfigureSSOContext.js";
+import { Step } from "../../../../elements/Step.js";
+import { useWizard } from "../../../../elements/Wizard/WizardContext.js";
+import { InnerStepCounter } from "../../../../elements/Wizard/InnerStepCounter.js";
+import { ActiveConnectionAlert } from "../../shared/ActiveConnectionAlert.js";
+import { IdentityProviderConfigurationModes } from "../../shared/IdentityProviderConfigurationModes.js";
+import { OidcEndpointsConfigurationForm } from "./OidcEndpointsConfigurationForm.js";
+import React from "react";
+import { Fragment as Fragment$1, jsx, jsxs } from "@emotion/react/jsx-runtime";
+
+//#region src/components/ConfigureSSO/steps/ConfigureStep/oidc/shared/OidcEndpointsStep.tsx
+const OIDC_ENDPOINT_MODES = ["discoveryUrl", "manual"];
+const OidcEndpointsStep = ({ mode, onModeChange }) => {
+	const card = useCardState();
+	const { goNext, goPrev, isFirstStep } = useWizard();
+	const { enterpriseConnection, enterpriseConnectionMutations: { updateConnection } } = useConfigureSSO();
+	const oauthConfig = enterpriseConnection?.oauthConfig;
+	const [isSubmitting, setIsSubmitting] = React.useState(false);
+	const discoveryUrlField = useFormControl("discoveryUrl", oauthConfig?.discoveryUrl ?? "", {
+		type: "text",
+		label: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.discoveryUrl.label"),
+		placeholder: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.discoveryUrl.placeholder"),
+		isRequired: true
+	});
+	const authUrlField = useFormControl("authUrl", oauthConfig?.authUrl ?? "", {
+		type: "text",
+		label: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.manual.authUrl.label"),
+		placeholder: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.manual.authUrl.placeholder"),
+		isRequired: true
+	});
+	const tokenUrlField = useFormControl("tokenUrl", oauthConfig?.tokenUrl ?? "", {
+		type: "text",
+		label: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.manual.tokenUrl.label"),
+		placeholder: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.manual.tokenUrl.placeholder"),
+		isRequired: true
+	});
+	const userInfoUrlField = useFormControl("userInfoUrl", oauthConfig?.userInfoUrl ?? "", {
+		type: "text",
+		label: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.manual.userInfoUrl.label"),
+		placeholder: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.manual.userInfoUrl.placeholder")
+	});
+	const canSubmit = (mode === "discoveryUrl" ? discoveryUrlField.value.trim().length > 0 : authUrlField.value.trim().length > 0 && tokenUrlField.value.trim().length > 0) && !isSubmitting;
+	const formProps = mode === "discoveryUrl" ? {
+		mode: "discoveryUrl",
+		form: { discoveryUrlField },
+		labels: { description: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.discoveryUrl.description") }
+	} : {
+		mode: "manual",
+		form: {
+			authUrlField,
+			tokenUrlField,
+			userInfoUrlField
+		},
+		labels: { description: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.manual.description") }
+	};
+	const handleContinue = async () => {
+		if (!enterpriseConnection || !canSubmit) return;
+		card.setError(void 0);
+		setIsSubmitting(true);
+		try {
+			await updateConnection(enterpriseConnection.id, mode === "discoveryUrl" ? { oidc: { discoveryUrl: discoveryUrlField.value.trim() } } : { oidc: {
+				authUrl: authUrlField.value.trim(),
+				tokenUrl: tokenUrlField.value.trim(),
+				userInfoUrl: userInfoUrlField.value.trim()
+			} });
+			goNext();
+		} catch (err) {
+			handleError(err, mode === "discoveryUrl" ? [discoveryUrlField] : [
+				authUrlField,
+				tokenUrlField,
+				userInfoUrlField
+			], card.setError);
+			setIsSubmitting(false);
+		}
+	};
+	return /* @__PURE__ */ jsxs(Fragment$1, { children: [
+		/* @__PURE__ */ jsx(Step.Header, {
+			title: localizationKeys("configureSSO.configureStep.oidcCustom.mainHeaderTitle"),
+			description: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.headerSubtitle"),
+			children: /* @__PURE__ */ jsx(InnerStepCounter, {})
+		}),
+		/* @__PURE__ */ jsx(Step.Body, { children: /* @__PURE__ */ jsxs(Step.Section, {
+			fill: true,
+			gap: 5,
+			children: [
+				/* @__PURE__ */ jsx(IdentityProviderConfigurationModes, {
+					modes: OIDC_ENDPOINT_MODES,
+					value: mode,
+					onChange: (nextMode) => {
+						card.setError(void 0);
+						onModeChange(nextMode);
+					},
+					labels: {
+						ariaLabel: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.modes.ariaLabel"),
+						discoveryUrl: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.modes.discoveryUrl"),
+						manual: localizationKeys("configureSSO.configureStep.oidcCustom.endpointsStep.modes.manual")
+					}
+				}),
+				/* @__PURE__ */ jsx(OidcEndpointsConfigurationForm, { ...formProps }),
+				/* @__PURE__ */ jsx(ActiveConnectionAlert, {})
+			]
+		}) }),
+		/* @__PURE__ */ jsxs(Step.Footer, { children: [
+			/* @__PURE__ */ jsx(Step.Footer.Reset, {}),
+			/* @__PURE__ */ jsx(Step.Footer.Previous, {
+				onClick: () => goPrev(),
+				isDisabled: isFirstStep || isSubmitting
+			}),
+			/* @__PURE__ */ jsx(Step.Footer.Continue, {
+				onClick: handleContinue,
+				isLoading: isSubmitting,
+				isDisabled: !canSubmit
+			})
+		] })
+	] });
+};
+
+//#endregion
+export { OidcEndpointsStep };
+//# sourceMappingURL=OidcEndpointsStep.js.map

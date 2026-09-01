@@ -1,0 +1,1 @@
+import { __internal_EnableOrganizationsPromptProps } from "@clerk/shared/types";
