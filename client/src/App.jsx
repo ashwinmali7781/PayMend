@@ -28,7 +28,9 @@ function Dashboard() {
         apiFetch("/audit-log"),
       ]);
       if (!metricsRes.ok || !logRes.ok) {
-        const body = await (metricsRes.ok ? logRes : metricsRes).json().catch(() => null);
+        const body = await (metricsRes.ok ? logRes : metricsRes)
+          .json()
+          .catch(() => null);
         throw new Error(body?.error || "Couldn't load dashboard data.");
       }
       setMetrics(await metricsRes.json());
@@ -36,7 +38,10 @@ function Dashboard() {
       setRefreshSignal((n) => n + 1);
       setError(null);
     } catch (err) {
-      setError(err.message || "Couldn't reach the agent server. Is `npm run dev` running in /server?");
+      setError(
+        err.message ||
+          "Couldn't reach the agent server. Is `npm run dev` running in /server?",
+      );
     }
   }, []);
 
@@ -56,7 +61,9 @@ function Dashboard() {
       if (!res.ok) throw new Error("Run failed");
       await refresh();
     } catch (err) {
-      setError("Couldn't reach the agent server. Is `npm run dev` running in /server?");
+      setError(
+        "Couldn't reach the agent server. Is `npm run dev` running in /server?",
+      );
     } finally {
       setLoading(false);
     }
@@ -79,8 +86,8 @@ function Dashboard() {
           <div className="eyebrow">PayMend · Revenue Recovery Agent</div>
           <h1>Detect. Diagnose. Recover.</h1>
           <p className="subtitle">
-            Watches failed payments, classifies the cause, and takes one bounded action per
-            payment — every decision logged with its reasoning below.
+            Watches failed payments, classifies the cause, and takes one bounded
+            action per payment — every decision logged with its reasoning below.
           </p>
         </div>
         <div className="header-actions">
@@ -90,10 +97,18 @@ function Dashboard() {
             </div>
           )}
           <ThemeToggle />
-          <button className="btn btn-primary" onClick={runAgent} disabled={loading}>
+          <button
+            className="btn btn-primary"
+            onClick={runAgent}
+            disabled={loading}
+          >
             {loading ? "Running…" : "Run agent on new batch"}
           </button>
-          <button className="btn btn-ghost" onClick={resetLog} disabled={loading}>
+          <button
+            className="btn btn-ghost"
+            onClick={resetLog}
+            disabled={loading}
+          >
             Reset
           </button>
         </div>
@@ -103,7 +118,10 @@ function Dashboard() {
 
       <MetricRow metrics={metrics} />
 
-      <RevenueProjection projection={metrics?.projection} totalProcessed={metrics?.totalProcessed} />
+      <RevenueProjection
+        projection={metrics?.projection}
+        totalProcessed={metrics?.totalProcessed}
+      />
 
       <div className="grid-two">
         <CategoryChart data={metrics?.byCategory} />
@@ -133,8 +151,8 @@ function Dashboard() {
       <CheckoutDropoffPanel />
 
       <footer className="footer">
-        Built for the Razorpay Buildathon — AI Revenue Recovery track. Synthetic test-mode data,
-        no real payments involved.
+        Built for the Razorpay Buildathon — AI Revenue Recovery track. Synthetic
+        test-mode data, no real payments involved.
       </footer>
     </div>
   );
