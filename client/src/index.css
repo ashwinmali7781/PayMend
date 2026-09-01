@@ -1,0 +1,86 @@
+:root {
+  /* Razorpay brand: Space Cadet navy + Dodger Blue, on light backgrounds */
+  --bg: #f7f9fc;
+  --panel: #ffffff;
+  --panel-raised: #f0f4fa;
+  --hairline: #e2e8f0;
+  --ink: #0c2451;
+  --ink-dim: #5b6b85;
+  --gold: #3395ff;
+  --gold-soft: #3395ff1a;
+  --navy: #0c2451;
+  --recovered: #1a9c6b;
+  --recovered-soft: #1a9c6b14;
+  --escalated: #d97706;
+  --escalated-soft: #d9770614;
+  --failing: #dc4444;
+  --failing-soft: #dc444414;
+  --chart-muted: #c3d0e3;
+
+  --display: "Inter", system-ui, sans-serif;
+  --body: "Inter", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --shadow-sm: 0 1px 2px rgba(12, 36, 81, 0.06);
+  --shadow-md: 0 4px 16px rgba(12, 36, 81, 0.08);
+}
+
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --panel: #121b2e;
+  --panel-raised: #17233a;
+  --hairline: #223252;
+  --ink: #eaf0fb;
+  --ink-dim: #8ea0c2;
+  --gold: #5aa9ff;
+  --gold-soft: #5aa9ff26;
+  --navy: #eaf0fb;
+  --recovered: #4fce9c;
+  --recovered-soft: #4fce9c22;
+  --escalated: #f0a446;
+  --escalated-soft: #f0a44622;
+  --failing: #f0665f;
+  --failing-soft: #f0665f22;
+  --chart-muted: #2c3c5c;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+body {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--gold-soft);
+  color: var(--ink);
+}
+
+button {
+  font-family: var(--body);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
