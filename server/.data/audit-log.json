@@ -1,5 +1,1517 @@
 [
   {
+    "audit_id": "audit_cE-KVgT7Ov",
+    "processed_at": "2026-09-02T08:37:44.301Z",
+    "payment": {
+      "id": "pay_yV2fEL7HY5kWpr",
+      "customer_id": "cust_AxhICCK8gW",
+      "customer_name": "Priya Nair",
+      "plan": "Pro Monthly",
+      "amount": 149900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined",
+      "attempt_number": 1,
+      "created_at": "2026-08-30T09:37:44.300Z"
+    },
+    "classification": {
+      "category": "bank_declined",
+      "label": "Bank declined",
+      "retryable": true,
+      "rationale": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 24 hours; if it fails again the retry cap will route to a human.",
+      "reasoning": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_rXgI44KOU7",
+    "processed_at": "2026-09-02T08:37:44.336Z",
+    "payment": {
+      "id": "pay_euue4ms0_0BZGz",
+      "customer_id": "cust_WoGXUFG0UI",
+      "customer_name": "Meera Pillai",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired",
+      "attempt_number": 1,
+      "created_at": "2026-08-31T22:37:44.300Z"
+    },
+    "classification": {
+      "category": "card_expired",
+      "label": "Card expired",
+      "retryable": false,
+      "rationale": "Retrying the same card will fail again. Customer must update payment method.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired"
+    },
+    "decision": {
+      "action": "notify_customer_update_method",
+      "detail": "Send a payment-update link; do not auto-retry a failure mode that won't resolve itself.",
+      "reasoning": "Retrying the same card will fail again. Customer must update payment method."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Meera, aapka card jo Starter Monthly ke liye use ho raha tha, woh expire ho chuka hai. Kripya apna naya card yahan update kar dein: [update card link], taaki aapki service bina rukawat ke chalti rahe."
+    }
+  },
+  {
+    "audit_id": "audit_9wJRBtr8Ko",
+    "processed_at": "2026-09-02T08:37:44.337Z",
+    "payment": {
+      "id": "pay_Y5RL2XHSfRtxj2",
+      "customer_id": "cust_C6ZP8vxqqu",
+      "customer_name": "Kabir Joshi",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 1,
+      "created_at": "2026-08-31T07:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Kabir, aapka Team Monthly ka payment of ₹3,999 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_7yZvEkQO4M",
+    "processed_at": "2026-09-02T08:37:44.337Z",
+    "payment": {
+      "id": "pay_EFVU8q8kdURtp1",
+      "customer_id": "cust_yOvQjdcgqW",
+      "customer_name": "Karan Malhotra",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "SERVER_ERROR",
+      "error_reason": "gateway_timeout",
+      "attempt_number": 1,
+      "created_at": "2026-08-30T21:37:44.300Z"
+    },
+    "classification": {
+      "category": "network_transient",
+      "label": "Network/issuer timeout",
+      "retryable": true,
+      "rationale": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed.",
+      "error_code": "SERVER_ERROR",
+      "error_reason": "gateway_timeout"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 15 minutes - transient failures usually clear fast.",
+      "reasoning": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_uZvI08fXmm",
+    "processed_at": "2026-09-02T08:37:44.337Z",
+    "payment": {
+      "id": "pay_-kyC2L5wIQFyUp",
+      "customer_id": "cust_IQbPNFPsTd",
+      "customer_name": "Yash Agarwal",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 1,
+      "created_at": "2026-09-01T12:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Yash, aapka Team Monthly ka payment of ₹3,999 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_ivrpd5CaYL",
+    "processed_at": "2026-09-02T08:37:44.337Z",
+    "payment": {
+      "id": "pay_eLITF6FsACw2Bz",
+      "customer_id": "cust_4unIr63k2s",
+      "customer_name": "Kabir Joshi",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "SERVER_ERROR",
+      "error_reason": "gateway_timeout",
+      "attempt_number": 1,
+      "created_at": "2026-08-30T13:37:44.300Z"
+    },
+    "classification": {
+      "category": "network_transient",
+      "label": "Network/issuer timeout",
+      "retryable": true,
+      "rationale": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed.",
+      "error_code": "SERVER_ERROR",
+      "error_reason": "gateway_timeout"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 15 minutes - transient failures usually clear fast.",
+      "reasoning": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_eKC3FyhFui",
+    "processed_at": "2026-09-02T08:37:44.337Z",
+    "payment": {
+      "id": "pay_Lavpczt_JEtLEq",
+      "customer_id": "cust_oADktIH38v",
+      "customer_name": "Nikhil Bose",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 1,
+      "created_at": "2026-08-30T21:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Nikhil, aapka Starter Monthly ka payment of ₹499 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_4YbPrvPRgP",
+    "processed_at": "2026-09-02T08:37:44.337Z",
+    "payment": {
+      "id": "pay_YELOIciOIzWv-K",
+      "customer_id": "cust_Bix5jFx5Pr",
+      "customer_name": "Karan Malhotra",
+      "plan": "Pro Monthly",
+      "amount": 149900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 1,
+      "created_at": "2026-09-01T13:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Karan, aapka Pro Monthly ka payment of ₹1,499 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_egZLaRbDqG",
+    "processed_at": "2026-09-02T08:37:44.337Z",
+    "payment": {
+      "id": "pay_gP07pq-SO0OO-b",
+      "customer_id": "cust_tgaVr5dXSK",
+      "customer_name": "Ananya Iyer",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired",
+      "attempt_number": 3,
+      "created_at": "2026-09-01T01:37:44.300Z"
+    },
+    "classification": {
+      "category": "card_expired",
+      "label": "Card expired",
+      "retryable": false,
+      "rationale": "Retrying the same card will fail again. Customer must update payment method.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired"
+    },
+    "decision": {
+      "action": "escalate_to_human",
+      "detail": "Already retried 2 time(s), at cap of 2.",
+      "reasoning": "Bound reached: agent does not retry indefinitely. Handing off to human collections queue."
+    },
+    "result": {
+      "outcome": "escalated",
+      "recovered": false,
+      "note": "Handed off to human collections queue with full context attached."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Ananya, aapka card jo Starter Monthly ke liye use ho raha tha, woh expire ho chuka hai. Kripya apna naya card yahan update kar dein: [update card link], taaki aapki service bina rukawat ke chalti rahe."
+    }
+  },
+  {
+    "audit_id": "audit_qke0TNSoAD",
+    "processed_at": "2026-09-02T08:37:44.337Z",
+    "payment": {
+      "id": "pay_Yz1ZCXLgtwTekn",
+      "customer_id": "cust_whdnVJ9QrY",
+      "customer_name": "Aarav Shah",
+      "plan": "Pro Monthly",
+      "amount": 149900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "SERVER_ERROR",
+      "error_reason": "gateway_timeout",
+      "attempt_number": 1,
+      "created_at": "2026-08-30T20:37:44.300Z"
+    },
+    "classification": {
+      "category": "network_transient",
+      "label": "Network/issuer timeout",
+      "retryable": true,
+      "rationale": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed.",
+      "error_code": "SERVER_ERROR",
+      "error_reason": "gateway_timeout"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 15 minutes - transient failures usually clear fast.",
+      "reasoning": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_P9igVYW03D",
+    "processed_at": "2026-09-02T08:37:44.337Z",
+    "payment": {
+      "id": "pay_UIvO8y76PK4La7",
+      "customer_id": "cust_z2k83u47Bx",
+      "customer_name": "Kabir Joshi",
+      "plan": "Pro Monthly",
+      "amount": 149900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined",
+      "attempt_number": 2,
+      "created_at": "2026-08-31T20:37:44.300Z"
+    },
+    "classification": {
+      "category": "bank_declined",
+      "label": "Bank declined",
+      "retryable": true,
+      "rationale": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 24 hours; if it fails again the retry cap will route to a human.",
+      "reasoning": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_S2W1Qz5w9i",
+    "processed_at": "2026-09-02T08:37:44.338Z",
+    "payment": {
+      "id": "pay_jChI215sEpojZL",
+      "customer_id": "cust_XNKA0u72mw",
+      "customer_name": "Arjun Singh",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "risk_check_failed",
+      "attempt_number": 1,
+      "created_at": "2026-08-29T20:37:44.300Z"
+    },
+    "classification": {
+      "category": "risk_flagged",
+      "label": "Risk check failed",
+      "retryable": false,
+      "rationale": "Automatic retries on risk-flagged payments could look like abuse. Route to human review.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "risk_check_failed"
+    },
+    "decision": {
+      "action": "notify_customer_update_method",
+      "detail": "Send a payment-update link; do not auto-retry a failure mode that won't resolve itself.",
+      "reasoning": "Automatic retries on risk-flagged payments could look like abuse. Route to human review."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Arjun, security ke liye aapka payment review mein hai. Hamari team jald hi aapse sampark karegi. Agar aapko jaldi hai toh humare support team se yahan baat karein: [support link]."
+    }
+  },
+  {
+    "audit_id": "audit_SD0fBkh0WR",
+    "processed_at": "2026-09-02T08:37:44.338Z",
+    "payment": {
+      "id": "pay_g92MhkZtClD2CG",
+      "customer_id": "cust_dJOcuMtOWL",
+      "customer_name": "Aarav Shah",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired",
+      "attempt_number": 1,
+      "created_at": "2026-09-02T06:37:44.300Z"
+    },
+    "classification": {
+      "category": "card_expired",
+      "label": "Card expired",
+      "retryable": false,
+      "rationale": "Retrying the same card will fail again. Customer must update payment method.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired"
+    },
+    "decision": {
+      "action": "notify_customer_update_method",
+      "detail": "Send a payment-update link; do not auto-retry a failure mode that won't resolve itself.",
+      "reasoning": "Retrying the same card will fail again. Customer must update payment method."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Aarav, aapka card jo Team Monthly ke liye use ho raha tha, woh expire ho chuka hai. Kripya apna naya card yahan update kar dein: [update card link], taaki aapki service bina rukawat ke chalti rahe."
+    }
+  },
+  {
+    "audit_id": "audit_ETtrfOfC4O",
+    "processed_at": "2026-09-02T08:37:44.338Z",
+    "payment": {
+      "id": "pay_BlM8m4ItC44pet",
+      "customer_id": "cust_wAP14OKVgW",
+      "customer_name": "Nikhil Bose",
+      "plan": "Pro Monthly",
+      "amount": 149900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined",
+      "attempt_number": 2,
+      "created_at": "2026-09-01T13:37:44.300Z"
+    },
+    "classification": {
+      "category": "bank_declined",
+      "label": "Bank declined",
+      "retryable": true,
+      "rationale": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 24 hours; if it fails again the retry cap will route to a human.",
+      "reasoning": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_HECSteYNS7",
+    "processed_at": "2026-09-02T08:37:44.338Z",
+    "payment": {
+      "id": "pay_LerUgEv00IfGI1",
+      "customer_id": "cust_jhg29mS3bP",
+      "customer_name": "Nikhil Bose",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 1,
+      "created_at": "2026-08-31T15:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Nikhil, aapka Starter Monthly ka payment of ₹499 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_zn0CQl2W0s",
+    "processed_at": "2026-09-02T08:37:44.338Z",
+    "payment": {
+      "id": "pay_70kHIj3uuEIaPo",
+      "customer_id": "cust_ZmvXYiWlV5",
+      "customer_name": "Divya Menon",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired",
+      "attempt_number": 2,
+      "created_at": "2026-08-29T17:37:44.300Z"
+    },
+    "classification": {
+      "category": "card_expired",
+      "label": "Card expired",
+      "retryable": false,
+      "rationale": "Retrying the same card will fail again. Customer must update payment method.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired"
+    },
+    "decision": {
+      "action": "notify_customer_update_method",
+      "detail": "Send a payment-update link; do not auto-retry a failure mode that won't resolve itself.",
+      "reasoning": "Retrying the same card will fail again. Customer must update payment method."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Divya, aapka card jo Team Monthly ke liye use ho raha tha, woh expire ho chuka hai. Kripya apna naya card yahan update kar dein: [update card link], taaki aapki service bina rukawat ke chalti rahe."
+    }
+  },
+  {
+    "audit_id": "audit_N4pVTwK0wn",
+    "processed_at": "2026-09-02T08:37:44.338Z",
+    "payment": {
+      "id": "pay_6i1Pi5w4zg69q2",
+      "customer_id": "cust_yWDyr3Mu5G",
+      "customer_name": "Sneha Reddy",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired",
+      "attempt_number": 1,
+      "created_at": "2026-08-30T06:37:44.300Z"
+    },
+    "classification": {
+      "category": "card_expired",
+      "label": "Card expired",
+      "retryable": false,
+      "rationale": "Retrying the same card will fail again. Customer must update payment method.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired"
+    },
+    "decision": {
+      "action": "notify_customer_update_method",
+      "detail": "Send a payment-update link; do not auto-retry a failure mode that won't resolve itself.",
+      "reasoning": "Retrying the same card will fail again. Customer must update payment method."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Sneha, aapka card jo Starter Monthly ke liye use ho raha tha, woh expire ho chuka hai. Kripya apna naya card yahan update kar dein: [update card link], taaki aapki service bina rukawat ke chalti rahe."
+    }
+  },
+  {
+    "audit_id": "audit_oebHJHSfO-",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_y6jf6_HAEo8Zi1",
+      "customer_id": "cust_3dRcO3kwlk",
+      "customer_name": "Ananya Iyer",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 2,
+      "created_at": "2026-09-01T00:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Ananya, aapka Starter Monthly ka payment of ₹499 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_hrf6NRINTx",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_BHXltB1TsAD4gq",
+      "customer_id": "cust_WCpCt8N0B9",
+      "customer_name": "Divya Menon",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "SERVER_ERROR",
+      "error_reason": "gateway_timeout",
+      "attempt_number": 1,
+      "created_at": "2026-08-31T11:37:44.300Z"
+    },
+    "classification": {
+      "category": "network_transient",
+      "label": "Network/issuer timeout",
+      "retryable": true,
+      "rationale": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed.",
+      "error_code": "SERVER_ERROR",
+      "error_reason": "gateway_timeout"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 15 minutes - transient failures usually clear fast.",
+      "reasoning": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_aFL_sP6C_R",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_w9m8cnTT9NAelh",
+      "customer_id": "cust_VaDUiLxHzW",
+      "customer_name": "Meera Pillai",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined",
+      "attempt_number": 1,
+      "created_at": "2026-08-30T04:37:44.300Z"
+    },
+    "classification": {
+      "category": "bank_declined",
+      "label": "Bank declined",
+      "retryable": true,
+      "rationale": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 24 hours; if it fails again the retry cap will route to a human.",
+      "reasoning": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_e_T87bv5YN",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_78H6CUIUcSMc47",
+      "customer_id": "cust_yqCi3gyhdA",
+      "customer_name": "Ananya Iyer",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired",
+      "attempt_number": 3,
+      "created_at": "2026-08-30T00:37:44.300Z"
+    },
+    "classification": {
+      "category": "card_expired",
+      "label": "Card expired",
+      "retryable": false,
+      "rationale": "Retrying the same card will fail again. Customer must update payment method.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired"
+    },
+    "decision": {
+      "action": "escalate_to_human",
+      "detail": "Already retried 2 time(s), at cap of 2.",
+      "reasoning": "Bound reached: agent does not retry indefinitely. Handing off to human collections queue."
+    },
+    "result": {
+      "outcome": "escalated",
+      "recovered": false,
+      "note": "Handed off to human collections queue with full context attached."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Ananya, aapka card jo Team Monthly ke liye use ho raha tha, woh expire ho chuka hai. Kripya apna naya card yahan update kar dein: [update card link], taaki aapki service bina rukawat ke chalti rahe."
+    }
+  },
+  {
+    "audit_id": "audit_UDlzRNm6eh",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_DgLoCdwmZoNzyq",
+      "customer_id": "cust_UK77-xtpXh",
+      "customer_name": "Riya Desai",
+      "plan": "Pro Monthly",
+      "amount": 149900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 1,
+      "created_at": "2026-09-01T03:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Riya, aapka Pro Monthly ka payment of ₹1,499 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_Gpcw9-PO_g",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_58h0AymqScJLZf",
+      "customer_id": "cust_B7CUPklvJq",
+      "customer_name": "Vikram Rao",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 1,
+      "created_at": "2026-09-01T15:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Vikram, aapka Team Monthly ka payment of ₹3,999 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_czB8U_ajzx",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_1wgn9Dq6GyUN71",
+      "customer_id": "cust_teoR-KRzNo",
+      "customer_name": "Aarav Shah",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired",
+      "attempt_number": 1,
+      "created_at": "2026-09-02T03:37:44.300Z"
+    },
+    "classification": {
+      "category": "card_expired",
+      "label": "Card expired",
+      "retryable": false,
+      "rationale": "Retrying the same card will fail again. Customer must update payment method.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired"
+    },
+    "decision": {
+      "action": "notify_customer_update_method",
+      "detail": "Send a payment-update link; do not auto-retry a failure mode that won't resolve itself.",
+      "reasoning": "Retrying the same card will fail again. Customer must update payment method."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Aarav, aapka card jo Team Monthly ke liye use ho raha tha, woh expire ho chuka hai. Kripya apna naya card yahan update kar dein: [update card link], taaki aapki service bina rukawat ke chalti rahe."
+    }
+  },
+  {
+    "audit_id": "audit_3kdDTkWv24",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_wjSwQB1uVIBlUC",
+      "customer_id": "cust_N93886JHTN",
+      "customer_name": "Sneha Reddy",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined",
+      "attempt_number": 1,
+      "created_at": "2026-08-31T00:37:44.300Z"
+    },
+    "classification": {
+      "category": "bank_declined",
+      "label": "Bank declined",
+      "retryable": true,
+      "rationale": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 24 hours; if it fails again the retry cap will route to a human.",
+      "reasoning": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_vunGqyKz1D",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_KKwyEIWM36fuO2",
+      "customer_id": "cust_mDAcmfSZlI",
+      "customer_name": "Rohan Mehta",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 1,
+      "created_at": "2026-09-01T01:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Rohan, aapka Team Monthly ka payment of ₹3,999 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_jaWBTwbRTM",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay__RfoO8-qMaw4gI",
+      "customer_id": "cust_uk50MOB1Db",
+      "customer_name": "Riya Desai",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired",
+      "attempt_number": 1,
+      "created_at": "2026-08-29T21:37:44.300Z"
+    },
+    "classification": {
+      "category": "card_expired",
+      "label": "Card expired",
+      "retryable": false,
+      "rationale": "Retrying the same card will fail again. Customer must update payment method.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired"
+    },
+    "decision": {
+      "action": "notify_customer_update_method",
+      "detail": "Send a payment-update link; do not auto-retry a failure mode that won't resolve itself.",
+      "reasoning": "Retrying the same card will fail again. Customer must update payment method."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Riya, aapka card jo Team Monthly ke liye use ho raha tha, woh expire ho chuka hai. Kripya apna naya card yahan update kar dein: [update card link], taaki aapki service bina rukawat ke chalti rahe."
+    }
+  },
+  {
+    "audit_id": "audit_VVx60lOLlH",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_bBpFVR624xdn0n",
+      "customer_id": "cust_ndRsm1LHmj",
+      "customer_name": "Karan Malhotra",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined",
+      "attempt_number": 1,
+      "created_at": "2026-09-01T04:37:44.300Z"
+    },
+    "classification": {
+      "category": "bank_declined",
+      "label": "Bank declined",
+      "retryable": true,
+      "rationale": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 24 hours; if it fails again the retry cap will route to a human.",
+      "reasoning": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_hoyf0_q3F5",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_mbdwXyGVZkRhM9",
+      "customer_id": "cust_vaZ31f7Vay",
+      "customer_name": "Rohan Mehta",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined",
+      "attempt_number": 1,
+      "created_at": "2026-09-01T03:37:44.300Z"
+    },
+    "classification": {
+      "category": "bank_declined",
+      "label": "Bank declined",
+      "retryable": true,
+      "rationale": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 24 hours; if it fails again the retry cap will route to a human.",
+      "reasoning": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_3FXXPvfHZy",
+    "processed_at": "2026-09-02T08:37:44.339Z",
+    "payment": {
+      "id": "pay_e8hYDGk2Cx-A9j",
+      "customer_id": "cust_9QJmMpCHdZ",
+      "customer_name": "Ananya Iyer",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined",
+      "attempt_number": 1,
+      "created_at": "2026-08-29T18:37:44.300Z"
+    },
+    "classification": {
+      "category": "bank_declined",
+      "label": "Bank declined",
+      "retryable": true,
+      "rationale": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 24 hours; if it fails again the retry cap will route to a human.",
+      "reasoning": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_XJAkX6TmWx",
+    "processed_at": "2026-09-02T08:37:44.340Z",
+    "payment": {
+      "id": "pay_dqnSNxOauX7Ol6",
+      "customer_id": "cust_5QN2C0Js0N",
+      "customer_name": "Karan Malhotra",
+      "plan": "Pro Monthly",
+      "amount": 149900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 1,
+      "created_at": "2026-08-31T21:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Karan, aapka Pro Monthly ka payment of ₹1,499 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_VMLyaHfCXB",
+    "processed_at": "2026-09-02T08:37:44.340Z",
+    "payment": {
+      "id": "pay_9yYlY1imzoVW9w",
+      "customer_id": "cust_8E9Vb9xA9h",
+      "customer_name": "Isha Kapoor",
+      "plan": "Pro Annual",
+      "amount": 1499900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "SERVER_ERROR",
+      "error_reason": "gateway_timeout",
+      "attempt_number": 2,
+      "created_at": "2026-09-02T05:37:44.300Z"
+    },
+    "classification": {
+      "category": "network_transient",
+      "label": "Network/issuer timeout",
+      "retryable": true,
+      "rationale": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed.",
+      "error_code": "SERVER_ERROR",
+      "error_reason": "gateway_timeout"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 15 minutes - transient failures usually clear fast.",
+      "reasoning": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_Nj6hhvrxB1",
+    "processed_at": "2026-09-02T08:37:44.340Z",
+    "payment": {
+      "id": "pay_7L6a45WioNBDfN",
+      "customer_id": "cust_LRPbMZ0zng",
+      "customer_name": "Yash Agarwal",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired",
+      "attempt_number": 1,
+      "created_at": "2026-09-01T02:37:44.300Z"
+    },
+    "classification": {
+      "category": "card_expired",
+      "label": "Card expired",
+      "retryable": false,
+      "rationale": "Retrying the same card will fail again. Customer must update payment method.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired"
+    },
+    "decision": {
+      "action": "notify_customer_update_method",
+      "detail": "Send a payment-update link; do not auto-retry a failure mode that won't resolve itself.",
+      "reasoning": "Retrying the same card will fail again. Customer must update payment method."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Yash, aapka card jo Starter Monthly ke liye use ho raha tha, woh expire ho chuka hai. Kripya apna naya card yahan update kar dein: [update card link], taaki aapki service bina rukawat ke chalti rahe."
+    }
+  },
+  {
+    "audit_id": "audit_gGH0ioH53I",
+    "processed_at": "2026-09-02T08:37:44.340Z",
+    "payment": {
+      "id": "pay_ExIBhflcG4IIOu",
+      "customer_id": "cust_pYZD0ZUKn3",
+      "customer_name": "Kabir Joshi",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired",
+      "attempt_number": 3,
+      "created_at": "2026-09-01T15:37:44.300Z"
+    },
+    "classification": {
+      "category": "card_expired",
+      "label": "Card expired",
+      "retryable": false,
+      "rationale": "Retrying the same card will fail again. Customer must update payment method.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "card_expired"
+    },
+    "decision": {
+      "action": "escalate_to_human",
+      "detail": "Already retried 2 time(s), at cap of 2.",
+      "reasoning": "Bound reached: agent does not retry indefinitely. Handing off to human collections queue."
+    },
+    "result": {
+      "outcome": "escalated",
+      "recovered": false,
+      "note": "Handed off to human collections queue with full context attached."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Kabir, aapka card jo Starter Monthly ke liye use ho raha tha, woh expire ho chuka hai. Kripya apna naya card yahan update kar dein: [update card link], taaki aapki service bina rukawat ke chalti rahe."
+    }
+  },
+  {
+    "audit_id": "audit_4LFZV6fM1M",
+    "processed_at": "2026-09-02T08:37:44.340Z",
+    "payment": {
+      "id": "pay_ncbyP9PWAo_zTf",
+      "customer_id": "cust_0_oSmaYSbQ",
+      "customer_name": "Divya Menon",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 1,
+      "created_at": "2026-08-29T14:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Divya, aapka Team Monthly ka payment of ₹3,999 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_31piVtirZw",
+    "processed_at": "2026-09-02T08:37:44.340Z",
+    "payment": {
+      "id": "pay_KtMUZxuihMn10_",
+      "customer_id": "cust_2AWO_wepUv",
+      "customer_name": "Riya Desai",
+      "plan": "Pro Monthly",
+      "amount": 149900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined",
+      "attempt_number": 1,
+      "created_at": "2026-09-02T04:37:44.300Z"
+    },
+    "classification": {
+      "category": "bank_declined",
+      "label": "Bank declined",
+      "retryable": true,
+      "rationale": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 24 hours; if it fails again the retry cap will route to a human.",
+      "reasoning": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_nF64CJSVet",
+    "processed_at": "2026-09-02T08:37:44.340Z",
+    "payment": {
+      "id": "pay_vns9H3TUp08oKo",
+      "customer_id": "cust_GMVnrq_BaR",
+      "customer_name": "Yash Agarwal",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds",
+      "attempt_number": 2,
+      "created_at": "2026-08-31T23:37:44.300Z"
+    },
+    "classification": {
+      "category": "insufficient_funds",
+      "label": "Insufficient funds",
+      "retryable": true,
+      "rationale": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "insufficient_funds"
+    },
+    "decision": {
+      "action": "schedule_retry",
+      "detail": "Retry in 3 days, timed after a likely salary/credit cycle.",
+      "reasoning": "Balance issues often resolve within days (salary credit, top-up). Safe to retry later."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Yash, aapka Team Monthly ka payment of ₹3,999 fail ho gaya tha kyunki account mein sufficient balance nahi tha. Koi baat nahi — hum agle kuch dinon mein dobara try karenge. Aap chahen toh abhi bhi payment complete kar sakte hain: [payment link]. Koi dikkat ho toh humein zaroor batayein!"
+    }
+  },
+  {
+    "audit_id": "audit_wWSrA1e8Bx",
+    "processed_at": "2026-09-02T08:37:44.340Z",
+    "payment": {
+      "id": "pay_PfvWNHhG0JP_kr",
+      "customer_id": "cust_AWInY_C4p-",
+      "customer_name": "Arjun Singh",
+      "plan": "Starter Monthly",
+      "amount": 49900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "issuer_timeout",
+      "attempt_number": 1,
+      "created_at": "2026-08-29T18:37:44.300Z"
+    },
+    "classification": {
+      "category": "network_transient",
+      "label": "Network/issuer timeout",
+      "retryable": true,
+      "rationale": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "issuer_timeout"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 15 minutes - transient failures usually clear fast.",
+      "reasoning": "Transient infrastructure issue, unrelated to the customer. High confidence retry will succeed."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "audit_i3MVCPsv5V",
+    "processed_at": "2026-09-02T08:37:44.340Z",
+    "payment": {
+      "id": "pay_VkKxNmEPUiI3qH",
+      "customer_id": "cust_80p3M0lJVl",
+      "customer_name": "Divya Menon",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "risk_check_failed",
+      "attempt_number": 1,
+      "created_at": "2026-08-31T07:37:44.300Z"
+    },
+    "classification": {
+      "category": "risk_flagged",
+      "label": "Risk check failed",
+      "retryable": false,
+      "rationale": "Automatic retries on risk-flagged payments could look like abuse. Route to human review.",
+      "error_code": "BAD_REQUEST_ERROR",
+      "error_reason": "risk_check_failed"
+    },
+    "decision": {
+      "action": "notify_customer_update_method",
+      "detail": "Send a payment-update link; do not auto-retry a failure mode that won't resolve itself.",
+      "reasoning": "Automatic retries on risk-flagged payments could look like abuse. Route to human review."
+    },
+    "result": {
+      "outcome": "still_failing",
+      "recovered": false,
+      "note": "Action taken, payment still failing - will re-enter the pipeline on next attempt or hit the retry cap."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Divya, security ke liye aapka payment review mein hai. Hamari team jald hi aapse sampark karegi. Agar aapko jaldi hai toh humare support team se yahan baat karein: [support link]."
+    }
+  },
+  {
+    "audit_id": "audit_VIOyc-CKoI",
+    "processed_at": "2026-09-02T08:37:44.340Z",
+    "payment": {
+      "id": "pay_wGAY1dOnZiQXlm",
+      "customer_id": "cust_E6eB2J7_nc",
+      "customer_name": "Sneha Reddy",
+      "plan": "Team Monthly",
+      "amount": 399900,
+      "currency": "INR",
+      "status": "failed",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined",
+      "attempt_number": 1,
+      "created_at": "2026-09-01T07:37:44.300Z"
+    },
+    "classification": {
+      "category": "bank_declined",
+      "label": "Bank declined",
+      "retryable": true,
+      "rationale": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating.",
+      "error_code": "GATEWAY_ERROR",
+      "error_reason": "bank_declined"
+    },
+    "decision": {
+      "action": "auto_retry",
+      "detail": "Retry within 24 hours; if it fails again the retry cap will route to a human.",
+      "reasoning": "Could be a soft decline (limits, OTP mismatch). Worth one retry before escalating."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Payment succeeded after agent action."
+    },
+    "message": null
+  },
+  {
     "audit_id": "audit_qjLQd_MyUq",
     "processed_at": "2026-09-01T11:10:06.493Z",
     "payment": {

@@ -1,5 +1,1130 @@
 [
   {
+    "audit_id": "chkaudit_ft-kA1Q840",
+    "processed_at": "2026-09-02T08:37:49.729Z",
+    "checkout": {
+      "id": "chk_rKehNAcSSsAmhM",
+      "customer_id": "cust_d7MRpKqtz9",
+      "customer_name": "Vikram Rao",
+      "cart_items": 3,
+      "cart_value": 328700,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "comparison_shopping",
+      "minutes_since_abandonment": 2594,
+      "device": "mobile",
+      "created_at": "2026-08-31T13:23:49.727Z"
+    },
+    "classification": {
+      "category": "comparison_shopping",
+      "label": "Comparison shopping",
+      "nudgeType": "reminder",
+      "rationale": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice.",
+      "abandonment_reason": "comparison_shopping"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Vikram, jab bhi aap ready hon, aapka cart yahan wait kar raha hai: [checkout link]. Koi sawaal ho toh humein batayein!"
+    }
+  },
+  {
+    "audit_id": "chkaudit_K6vRmubKUv",
+    "processed_at": "2026-09-02T08:37:49.730Z",
+    "checkout": {
+      "id": "chk_7qllYhmtn2zTma",
+      "customer_id": "cust_LZY1T8EwYW",
+      "customer_name": "Arjun Singh",
+      "cart_items": 4,
+      "cart_value": 117100,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "no_saved_payment_method",
+      "minutes_since_abandonment": 805,
+      "device": "mobile",
+      "created_at": "2026-09-01T19:12:49.727Z"
+    },
+    "classification": {
+      "category": "no_saved_payment_method",
+      "label": "No saved payment method",
+      "nudgeType": "reminder",
+      "rationale": "Cart is intact, customer just didn't have a payment method ready. A simple reminder is enough - no discount needed.",
+      "abandonment_reason": "no_saved_payment_method"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Cart is intact, customer just didn't have a payment method ready. A simple reminder is enough - no discount needed."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Arjun, aapka cart abhi bhi saved hai — bas payment method add karna baaki hai. Ek click mein complete kar sakte hain: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_cYLqOXz4iZ",
+    "processed_at": "2026-09-02T08:37:49.730Z",
+    "checkout": {
+      "id": "chk_c7q4NWUTN7bwh3",
+      "customer_id": "cust_4deLHs0t6N",
+      "customer_name": "Divya Menon",
+      "cart_items": 5,
+      "cart_value": 327700,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "price_hesitation",
+      "minutes_since_abandonment": 2958,
+      "device": "mobile",
+      "created_at": "2026-08-31T07:19:49.727Z"
+    },
+    "classification": {
+      "category": "price_hesitation",
+      "label": "Price hesitation",
+      "nudgeType": "discount",
+      "rationale": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here.",
+      "abandonment_reason": "price_hesitation"
+    },
+    "decision": {
+      "action": "send_discount_nudge",
+      "detail": "One-time 10% discount code, single use, no stacking.",
+      "reasoning": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Divya, aapka cart (₹3,277) abhi bhi humare paas saved hai! Special ke taur par, aapke liye 10% off ka code hai: SAVE10. Ye offer thodi der ke liye hi valid hai — jaldi checkout kar lein: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_Hwfm_5DC3S",
+    "processed_at": "2026-09-02T08:37:49.730Z",
+    "checkout": {
+      "id": "chk_aUjJuaUz3lYi4p",
+      "customer_id": "cust_h3ICsP0gQ-",
+      "customer_name": "Karan Malhotra",
+      "cart_items": 4,
+      "cart_value": 296100,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "comparison_shopping",
+      "minutes_since_abandonment": 173,
+      "device": "desktop",
+      "created_at": "2026-09-02T05:44:49.727Z"
+    },
+    "classification": {
+      "category": "comparison_shopping",
+      "label": "Comparison shopping",
+      "nudgeType": "reminder",
+      "rationale": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice.",
+      "abandonment_reason": "comparison_shopping"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Karan, jab bhi aap ready hon, aapka cart yahan wait kar raha hai: [checkout link]. Koi sawaal ho toh humein batayein!"
+    }
+  },
+  {
+    "audit_id": "chkaudit_t1T7V_5k5S",
+    "processed_at": "2026-09-02T08:37:49.730Z",
+    "checkout": {
+      "id": "chk_6OF5fIeFoYKhkX",
+      "customer_id": "cust_3rs-H01taR",
+      "customer_name": "Arjun Singh",
+      "cart_items": 4,
+      "cart_value": 219300,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "session_timeout",
+      "minutes_since_abandonment": 2639,
+      "device": "mobile",
+      "created_at": "2026-08-31T12:38:49.727Z"
+    },
+    "classification": {
+      "category": "session_timeout",
+      "label": "Session timed out",
+      "nudgeType": "reminder",
+      "rationale": "Likely a genuine interruption, not a buying-decision problem. A reminder that the cart is saved is sufficient.",
+      "abandonment_reason": "session_timeout"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Likely a genuine interruption, not a buying-decision problem. A reminder that the cart is saved is sufficient."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Customer completed checkout after the nudge."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Arjun, lagta hai session beech mein hi timeout ho gaya. Koi baat nahi — aapka cart safe hai, jab chahen complete kar sakte hain: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_oQynH3BRDn",
+    "processed_at": "2026-09-02T08:37:49.730Z",
+    "checkout": {
+      "id": "chk_svS1gmLrgnFgWX",
+      "customer_id": "cust_aPRuWk-JT-",
+      "customer_name": "Vikram Rao",
+      "cart_items": 2,
+      "cart_value": 170800,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "price_hesitation",
+      "minutes_since_abandonment": 1853,
+      "device": "mobile",
+      "created_at": "2026-09-01T01:44:49.727Z"
+    },
+    "classification": {
+      "category": "price_hesitation",
+      "label": "Price hesitation",
+      "nudgeType": "discount",
+      "rationale": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here.",
+      "abandonment_reason": "price_hesitation"
+    },
+    "decision": {
+      "action": "send_discount_nudge",
+      "detail": "One-time 10% discount code, single use, no stacking.",
+      "reasoning": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Customer completed checkout after the nudge."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Vikram, aapka cart (₹1,708) abhi bhi humare paas saved hai! Special ke taur par, aapke liye 10% off ka code hai: SAVE10. Ye offer thodi der ke liye hi valid hai — jaldi checkout kar lein: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_fe7cAmOiSI",
+    "processed_at": "2026-09-02T08:37:49.730Z",
+    "checkout": {
+      "id": "chk_6JQP9kDCPmUWXl",
+      "customer_id": "cust_g3cKg1C5gh",
+      "customer_name": "Yash Agarwal",
+      "cart_items": 4,
+      "cart_value": 2259600,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "no_saved_payment_method",
+      "minutes_since_abandonment": 1401,
+      "device": "mobile",
+      "created_at": "2026-09-01T09:16:49.727Z"
+    },
+    "classification": {
+      "category": "no_saved_payment_method",
+      "label": "No saved payment method",
+      "nudgeType": "reminder",
+      "rationale": "Cart is intact, customer just didn't have a payment method ready. A simple reminder is enough - no discount needed.",
+      "abandonment_reason": "no_saved_payment_method"
+    },
+    "decision": {
+      "action": "notify_sales_human",
+      "detail": "Cart value is high (22,596 INR) - routed to a human, not an automated discount.",
+      "reasoning": "High-value carts get a human touch rather than a blanket automated offer."
+    },
+    "result": {
+      "outcome": "escalated",
+      "recovered": false,
+      "note": "Handed off to a human for high-touch outreach."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "chkaudit_PsuChvBv_5",
+    "processed_at": "2026-09-02T08:37:49.731Z",
+    "checkout": {
+      "id": "chk_ndq_qFqAeziMKC",
+      "customer_id": "cust_tch8qXTD8N",
+      "customer_name": "Nikhil Bose",
+      "cart_items": 1,
+      "cart_value": 351000,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "shipping_cost_shock",
+      "minutes_since_abandonment": 485,
+      "device": "desktop",
+      "created_at": "2026-09-02T00:32:49.727Z"
+    },
+    "classification": {
+      "category": "shipping_cost_shock",
+      "label": "Shipping cost surprise",
+      "nudgeType": "discount",
+      "rationale": "Shipping cost revealed late in checkout is a well-documented drop-off cause. A shipping-offset discount directly addresses it.",
+      "abandonment_reason": "shipping_cost_shock"
+    },
+    "decision": {
+      "action": "send_discount_nudge",
+      "detail": "One-time 10% discount code, single use, no stacking.",
+      "reasoning": "Shipping cost revealed late in checkout is a well-documented drop-off cause. A shipping-offset discount directly addresses it."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Nikhil, hume pata hai shipping cost thoda zyada laga hoga. Isliye aapke liye 10% off ka code hai jo shipping cost cover karne mein madad karega: SAVE10. Aapka cart (₹3,510) abhi bhi ready hai: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_crjasJkj8S",
+    "processed_at": "2026-09-02T08:37:49.731Z",
+    "checkout": {
+      "id": "chk_1shTtUbp5URpl-",
+      "customer_id": "cust_6_gOYalX-1",
+      "customer_name": "Rohan Mehta",
+      "cart_items": 1,
+      "cart_value": 67900,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "shipping_cost_shock",
+      "minutes_since_abandonment": 3560,
+      "device": "mobile",
+      "created_at": "2026-08-30T21:17:49.727Z"
+    },
+    "classification": {
+      "category": "shipping_cost_shock",
+      "label": "Shipping cost surprise",
+      "nudgeType": "discount",
+      "rationale": "Shipping cost revealed late in checkout is a well-documented drop-off cause. A shipping-offset discount directly addresses it.",
+      "abandonment_reason": "shipping_cost_shock"
+    },
+    "decision": {
+      "action": "send_discount_nudge",
+      "detail": "One-time 10% discount code, single use, no stacking.",
+      "reasoning": "Shipping cost revealed late in checkout is a well-documented drop-off cause. A shipping-offset discount directly addresses it."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Customer completed checkout after the nudge."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Rohan, hume pata hai shipping cost thoda zyada laga hoga. Isliye aapke liye 10% off ka code hai jo shipping cost cover karne mein madad karega: SAVE10. Aapka cart (₹679) abhi bhi ready hai: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_ZkEA71y34Q",
+    "processed_at": "2026-09-02T08:37:49.731Z",
+    "checkout": {
+      "id": "chk_IU96KZx3lWi0CK",
+      "customer_id": "cust_lcwBl2LaZa",
+      "customer_name": "Ananya Iyer",
+      "cart_items": 5,
+      "cart_value": 324400,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "session_timeout",
+      "minutes_since_abandonment": 923,
+      "device": "desktop",
+      "created_at": "2026-09-01T17:14:49.727Z"
+    },
+    "classification": {
+      "category": "session_timeout",
+      "label": "Session timed out",
+      "nudgeType": "reminder",
+      "rationale": "Likely a genuine interruption, not a buying-decision problem. A reminder that the cart is saved is sufficient.",
+      "abandonment_reason": "session_timeout"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Likely a genuine interruption, not a buying-decision problem. A reminder that the cart is saved is sufficient."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Ananya, lagta hai session beech mein hi timeout ho gaya. Koi baat nahi — aapka cart safe hai, jab chahen complete kar sakte hain: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_qcAs7xTDWE",
+    "processed_at": "2026-09-02T08:37:49.731Z",
+    "checkout": {
+      "id": "chk_aGIBhZpsEMM3XG",
+      "customer_id": "cust_SaFeqC4P6g",
+      "customer_name": "Rohan Mehta",
+      "cart_items": 5,
+      "cart_value": 81100,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "price_hesitation",
+      "minutes_since_abandonment": 22,
+      "device": "mobile",
+      "created_at": "2026-09-02T08:15:49.727Z"
+    },
+    "classification": {
+      "category": "price_hesitation",
+      "label": "Price hesitation",
+      "nudgeType": "discount",
+      "rationale": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here.",
+      "abandonment_reason": "price_hesitation"
+    },
+    "decision": {
+      "action": "wait",
+      "detail": "Only 22 min since abandonment - too soon to nudge.",
+      "reasoning": "Customer may still be actively shopping. Bounded behavior: no nudge before 30 minutes."
+    },
+    "result": {
+      "outcome": "waiting",
+      "recovered": false,
+      "note": "Too soon to act. Will be reconsidered on the next run."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "chkaudit_8aY3dLC2Qs",
+    "processed_at": "2026-09-02T08:37:49.731Z",
+    "checkout": {
+      "id": "chk_uu3jcBes8DUITT",
+      "customer_id": "cust_xFWrfWu3SE",
+      "customer_name": "Meera Pillai",
+      "cart_items": 1,
+      "cart_value": 4460300,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "price_hesitation",
+      "minutes_since_abandonment": 1764,
+      "device": "desktop",
+      "created_at": "2026-09-01T03:13:49.727Z"
+    },
+    "classification": {
+      "category": "price_hesitation",
+      "label": "Price hesitation",
+      "nudgeType": "discount",
+      "rationale": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here.",
+      "abandonment_reason": "price_hesitation"
+    },
+    "decision": {
+      "action": "notify_sales_human",
+      "detail": "Cart value is high (44,603 INR) - routed to a human, not an automated discount.",
+      "reasoning": "High-value carts get a human touch rather than a blanket automated offer."
+    },
+    "result": {
+      "outcome": "escalated",
+      "recovered": false,
+      "note": "Handed off to a human for high-touch outreach."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "chkaudit_K5pVY-tC7A",
+    "processed_at": "2026-09-02T08:37:49.731Z",
+    "checkout": {
+      "id": "chk_v7ryPaBGKceN4F",
+      "customer_id": "cust_9ZxvVGSsBP",
+      "customer_name": "Meera Pillai",
+      "cart_items": 5,
+      "cart_value": 52000,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "no_saved_payment_method",
+      "minutes_since_abandonment": 1610,
+      "device": "mobile",
+      "created_at": "2026-09-01T05:47:49.727Z"
+    },
+    "classification": {
+      "category": "no_saved_payment_method",
+      "label": "No saved payment method",
+      "nudgeType": "reminder",
+      "rationale": "Cart is intact, customer just didn't have a payment method ready. A simple reminder is enough - no discount needed.",
+      "abandonment_reason": "no_saved_payment_method"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Cart is intact, customer just didn't have a payment method ready. A simple reminder is enough - no discount needed."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Meera, aapka cart abhi bhi saved hai — bas payment method add karna baaki hai. Ek click mein complete kar sakte hain: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_7LWINd5tSY",
+    "processed_at": "2026-09-02T08:37:49.731Z",
+    "checkout": {
+      "id": "chk_SCr7kOfMyM5Da9",
+      "customer_id": "cust_Or8OzHvW8n",
+      "customer_name": "Ananya Iyer",
+      "cart_items": 5,
+      "cart_value": 65200,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "no_saved_payment_method",
+      "minutes_since_abandonment": 1078,
+      "device": "mobile",
+      "created_at": "2026-09-01T14:39:49.727Z"
+    },
+    "classification": {
+      "category": "no_saved_payment_method",
+      "label": "No saved payment method",
+      "nudgeType": "reminder",
+      "rationale": "Cart is intact, customer just didn't have a payment method ready. A simple reminder is enough - no discount needed.",
+      "abandonment_reason": "no_saved_payment_method"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Cart is intact, customer just didn't have a payment method ready. A simple reminder is enough - no discount needed."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Customer completed checkout after the nudge."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Ananya, aapka cart abhi bhi saved hai — bas payment method add karna baaki hai. Ek click mein complete kar sakte hain: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_--lua5UMVe",
+    "processed_at": "2026-09-02T08:37:49.732Z",
+    "checkout": {
+      "id": "chk_3lEEBNf7LEeLoA",
+      "customer_id": "cust_CVZVL8sjSQ",
+      "customer_name": "Vikram Rao",
+      "cart_items": 1,
+      "cart_value": 204300,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "shipping_cost_shock",
+      "minutes_since_abandonment": 1565,
+      "device": "mobile",
+      "created_at": "2026-09-01T06:32:49.727Z"
+    },
+    "classification": {
+      "category": "shipping_cost_shock",
+      "label": "Shipping cost surprise",
+      "nudgeType": "discount",
+      "rationale": "Shipping cost revealed late in checkout is a well-documented drop-off cause. A shipping-offset discount directly addresses it.",
+      "abandonment_reason": "shipping_cost_shock"
+    },
+    "decision": {
+      "action": "send_discount_nudge",
+      "detail": "One-time 10% discount code, single use, no stacking.",
+      "reasoning": "Shipping cost revealed late in checkout is a well-documented drop-off cause. A shipping-offset discount directly addresses it."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Vikram, hume pata hai shipping cost thoda zyada laga hoga. Isliye aapke liye 10% off ka code hai jo shipping cost cover karne mein madad karega: SAVE10. Aapka cart (₹2,043) abhi bhi ready hai: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_V5-Pp5Sp_U",
+    "processed_at": "2026-09-02T08:37:49.732Z",
+    "checkout": {
+      "id": "chk_A-Z22NBEwhIwyo",
+      "customer_id": "cust_kr0vJWRhXa",
+      "customer_name": "Kabir Joshi",
+      "cart_items": 1,
+      "cart_value": 361000,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "session_timeout",
+      "minutes_since_abandonment": 2297,
+      "device": "mobile",
+      "created_at": "2026-08-31T18:20:49.727Z"
+    },
+    "classification": {
+      "category": "session_timeout",
+      "label": "Session timed out",
+      "nudgeType": "reminder",
+      "rationale": "Likely a genuine interruption, not a buying-decision problem. A reminder that the cart is saved is sufficient.",
+      "abandonment_reason": "session_timeout"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Likely a genuine interruption, not a buying-decision problem. A reminder that the cart is saved is sufficient."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Kabir, lagta hai session beech mein hi timeout ho gaya. Koi baat nahi — aapka cart safe hai, jab chahen complete kar sakte hain: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_na4THbfr2b",
+    "processed_at": "2026-09-02T08:37:49.732Z",
+    "checkout": {
+      "id": "chk_UJDCRRjOf4sufU",
+      "customer_id": "cust_uUGAfx84iO",
+      "customer_name": "Sneha Reddy",
+      "cart_items": 5,
+      "cart_value": 323500,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "comparison_shopping",
+      "minutes_since_abandonment": 174,
+      "device": "mobile",
+      "created_at": "2026-09-02T05:43:49.727Z"
+    },
+    "classification": {
+      "category": "comparison_shopping",
+      "label": "Comparison shopping",
+      "nudgeType": "reminder",
+      "rationale": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice.",
+      "abandonment_reason": "comparison_shopping"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Sneha, jab bhi aap ready hon, aapka cart yahan wait kar raha hai: [checkout link]. Koi sawaal ho toh humein batayein!"
+    }
+  },
+  {
+    "audit_id": "chkaudit_mXEZqoDUPz",
+    "processed_at": "2026-09-02T08:37:49.732Z",
+    "checkout": {
+      "id": "chk_pKzssEttgddvoz",
+      "customer_id": "cust_ZObBD3yB86",
+      "customer_name": "Divya Menon",
+      "cart_items": 1,
+      "cart_value": 328200,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "comparison_shopping",
+      "minutes_since_abandonment": 1142,
+      "device": "desktop",
+      "created_at": "2026-09-01T13:35:49.727Z"
+    },
+    "classification": {
+      "category": "comparison_shopping",
+      "label": "Comparison shopping",
+      "nudgeType": "reminder",
+      "rationale": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice.",
+      "abandonment_reason": "comparison_shopping"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Divya, jab bhi aap ready hon, aapka cart yahan wait kar raha hai: [checkout link]. Koi sawaal ho toh humein batayein!"
+    }
+  },
+  {
+    "audit_id": "chkaudit_4PRt5mMUFG",
+    "processed_at": "2026-09-02T08:37:49.732Z",
+    "checkout": {
+      "id": "chk_emHFdZDZpFo-y6",
+      "customer_id": "cust_IgL2Zn7KWo",
+      "customer_name": "Yash Agarwal",
+      "cart_items": 3,
+      "cart_value": 396000,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "price_hesitation",
+      "minutes_since_abandonment": 97,
+      "device": "mobile",
+      "created_at": "2026-09-02T07:00:49.727Z"
+    },
+    "classification": {
+      "category": "price_hesitation",
+      "label": "Price hesitation",
+      "nudgeType": "discount",
+      "rationale": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here.",
+      "abandonment_reason": "price_hesitation"
+    },
+    "decision": {
+      "action": "send_discount_nudge",
+      "detail": "One-time 10% discount code, single use, no stacking.",
+      "reasoning": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Customer completed checkout after the nudge."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Yash, aapka cart (₹3,960) abhi bhi humare paas saved hai! Special ke taur par, aapke liye 10% off ka code hai: SAVE10. Ye offer thodi der ke liye hi valid hai — jaldi checkout kar lein: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_LcRi7Hx_X7",
+    "processed_at": "2026-09-02T08:37:49.732Z",
+    "checkout": {
+      "id": "chk_0ihZ6n45W-uosC",
+      "customer_id": "cust_gW72Ha_Sww",
+      "customer_name": "Priya Nair",
+      "cart_items": 4,
+      "cart_value": 4048000,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "comparison_shopping",
+      "minutes_since_abandonment": 914,
+      "device": "mobile",
+      "created_at": "2026-09-01T17:23:49.727Z"
+    },
+    "classification": {
+      "category": "comparison_shopping",
+      "label": "Comparison shopping",
+      "nudgeType": "reminder",
+      "rationale": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice.",
+      "abandonment_reason": "comparison_shopping"
+    },
+    "decision": {
+      "action": "notify_sales_human",
+      "detail": "Cart value is high (40,480 INR) - routed to a human, not an automated discount.",
+      "reasoning": "High-value carts get a human touch rather than a blanket automated offer."
+    },
+    "result": {
+      "outcome": "escalated",
+      "recovered": false,
+      "note": "Handed off to a human for high-touch outreach."
+    },
+    "message": null
+  },
+  {
+    "audit_id": "chkaudit_YPeiXGoVss",
+    "processed_at": "2026-09-02T08:37:49.732Z",
+    "checkout": {
+      "id": "chk_ijeqpkdNvAlitO",
+      "customer_id": "cust_o3XcvaIDDO",
+      "customer_name": "Rohan Mehta",
+      "cart_items": 1,
+      "cart_value": 82600,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "no_saved_payment_method",
+      "minutes_since_abandonment": 757,
+      "device": "mobile",
+      "created_at": "2026-09-01T20:00:49.727Z"
+    },
+    "classification": {
+      "category": "no_saved_payment_method",
+      "label": "No saved payment method",
+      "nudgeType": "reminder",
+      "rationale": "Cart is intact, customer just didn't have a payment method ready. A simple reminder is enough - no discount needed.",
+      "abandonment_reason": "no_saved_payment_method"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Cart is intact, customer just didn't have a payment method ready. A simple reminder is enough - no discount needed."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Rohan, aapka cart abhi bhi saved hai — bas payment method add karna baaki hai. Ek click mein complete kar sakte hain: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_2i4NHPfQMZ",
+    "processed_at": "2026-09-02T08:37:49.732Z",
+    "checkout": {
+      "id": "chk_33pEvH8F9crmLk",
+      "customer_id": "cust_Ylbh0C1bWc",
+      "customer_name": "Divya Menon",
+      "cart_items": 4,
+      "cart_value": 131600,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "comparison_shopping",
+      "minutes_since_abandonment": 3462,
+      "device": "mobile",
+      "created_at": "2026-08-30T22:55:49.727Z"
+    },
+    "classification": {
+      "category": "comparison_shopping",
+      "label": "Comparison shopping",
+      "nudgeType": "reminder",
+      "rationale": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice.",
+      "abandonment_reason": "comparison_shopping"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Customer completed checkout after the nudge."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Divya, jab bhi aap ready hon, aapka cart yahan wait kar raha hai: [checkout link]. Koi sawaal ho toh humein batayein!"
+    }
+  },
+  {
+    "audit_id": "chkaudit_2iGyu9BfjH",
+    "processed_at": "2026-09-02T08:37:49.733Z",
+    "checkout": {
+      "id": "chk_Id9hYeK_Rok4tK",
+      "customer_id": "cust_1clQyCUmdK",
+      "customer_name": "Riya Desai",
+      "cart_items": 4,
+      "cart_value": 234500,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "price_hesitation",
+      "minutes_since_abandonment": 580,
+      "device": "mobile",
+      "created_at": "2026-09-01T22:57:49.727Z"
+    },
+    "classification": {
+      "category": "price_hesitation",
+      "label": "Price hesitation",
+      "nudgeType": "discount",
+      "rationale": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here.",
+      "abandonment_reason": "price_hesitation"
+    },
+    "decision": {
+      "action": "send_discount_nudge",
+      "detail": "One-time 10% discount code, single use, no stacking.",
+      "reasoning": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Customer completed checkout after the nudge."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Riya, aapka cart (₹2,345) abhi bhi humare paas saved hai! Special ke taur par, aapke liye 10% off ka code hai: SAVE10. Ye offer thodi der ke liye hi valid hai — jaldi checkout kar lein: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_vVbWZJRZiI",
+    "processed_at": "2026-09-02T08:37:49.733Z",
+    "checkout": {
+      "id": "chk_WIC8AzMAU3TP3b",
+      "customer_id": "cust_xqCdqcnUOV",
+      "customer_name": "Rohan Mehta",
+      "cart_items": 2,
+      "cart_value": 256200,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "session_timeout",
+      "minutes_since_abandonment": 3629,
+      "device": "mobile",
+      "created_at": "2026-08-30T20:08:49.727Z"
+    },
+    "classification": {
+      "category": "session_timeout",
+      "label": "Session timed out",
+      "nudgeType": "reminder",
+      "rationale": "Likely a genuine interruption, not a buying-decision problem. A reminder that the cart is saved is sufficient.",
+      "abandonment_reason": "session_timeout"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Likely a genuine interruption, not a buying-decision problem. A reminder that the cart is saved is sufficient."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Customer completed checkout after the nudge."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Rohan, lagta hai session beech mein hi timeout ho gaya. Koi baat nahi — aapka cart safe hai, jab chahen complete kar sakte hain: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_oTZa0oorRH",
+    "processed_at": "2026-09-02T08:37:49.733Z",
+    "checkout": {
+      "id": "chk_lZRwlEdYn8c9aI",
+      "customer_id": "cust_wek_Kw_haQ",
+      "customer_name": "Meera Pillai",
+      "cart_items": 1,
+      "cart_value": 91500,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "comparison_shopping",
+      "minutes_since_abandonment": 496,
+      "device": "mobile",
+      "created_at": "2026-09-02T00:21:49.727Z"
+    },
+    "classification": {
+      "category": "comparison_shopping",
+      "label": "Comparison shopping",
+      "nudgeType": "reminder",
+      "rationale": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice.",
+      "abandonment_reason": "comparison_shopping"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Meera, jab bhi aap ready hon, aapka cart yahan wait kar raha hai: [checkout link]. Koi sawaal ho toh humein batayein!"
+    }
+  },
+  {
+    "audit_id": "chkaudit_Ivdgtz6ul6",
+    "processed_at": "2026-09-02T08:37:49.733Z",
+    "checkout": {
+      "id": "chk_t70yzGBmXFC2qA",
+      "customer_id": "cust_w_lq5cRy02",
+      "customer_name": "Riya Desai",
+      "cart_items": 1,
+      "cart_value": 424600,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "comparison_shopping",
+      "minutes_since_abandonment": 2089,
+      "device": "desktop",
+      "created_at": "2026-08-31T21:48:49.727Z"
+    },
+    "classification": {
+      "category": "comparison_shopping",
+      "label": "Comparison shopping",
+      "nudgeType": "reminder",
+      "rationale": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice.",
+      "abandonment_reason": "comparison_shopping"
+    },
+    "decision": {
+      "action": "send_reminder",
+      "detail": "Cart-saved reminder with a direct checkout link. No discount attached.",
+      "reasoning": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Riya, jab bhi aap ready hon, aapka cart yahan wait kar raha hai: [checkout link]. Koi sawaal ho toh humein batayein!"
+    }
+  },
+  {
+    "audit_id": "chkaudit_GmNrUym1nu",
+    "processed_at": "2026-09-02T08:37:49.733Z",
+    "checkout": {
+      "id": "chk_XAxCpYEedfgHUy",
+      "customer_id": "cust_VJ_nSxUbZ5",
+      "customer_name": "Yash Agarwal",
+      "cart_items": 4,
+      "cart_value": 149700,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "shipping_cost_shock",
+      "minutes_since_abandonment": 2901,
+      "device": "mobile",
+      "created_at": "2026-08-31T08:16:49.727Z"
+    },
+    "classification": {
+      "category": "shipping_cost_shock",
+      "label": "Shipping cost surprise",
+      "nudgeType": "discount",
+      "rationale": "Shipping cost revealed late in checkout is a well-documented drop-off cause. A shipping-offset discount directly addresses it.",
+      "abandonment_reason": "shipping_cost_shock"
+    },
+    "decision": {
+      "action": "send_discount_nudge",
+      "detail": "One-time 10% discount code, single use, no stacking.",
+      "reasoning": "Shipping cost revealed late in checkout is a well-documented drop-off cause. A shipping-offset discount directly addresses it."
+    },
+    "result": {
+      "outcome": "recovered",
+      "recovered": true,
+      "note": "Customer completed checkout after the nudge."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Yash, hume pata hai shipping cost thoda zyada laga hoga. Isliye aapke liye 10% off ka code hai jo shipping cost cover karne mein madad karega: SAVE10. Aapka cart (₹1,497) abhi bhi ready hai: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_7nZFSMGAPe",
+    "processed_at": "2026-09-02T08:37:49.733Z",
+    "checkout": {
+      "id": "chk_G9xAAdWyBCBq84",
+      "customer_id": "cust_SSckw5gMfr",
+      "customer_name": "Vikram Rao",
+      "cart_items": 4,
+      "cart_value": 310400,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "shipping_cost_shock",
+      "minutes_since_abandonment": 1936,
+      "device": "mobile",
+      "created_at": "2026-09-01T00:21:49.727Z"
+    },
+    "classification": {
+      "category": "shipping_cost_shock",
+      "label": "Shipping cost surprise",
+      "nudgeType": "discount",
+      "rationale": "Shipping cost revealed late in checkout is a well-documented drop-off cause. A shipping-offset discount directly addresses it.",
+      "abandonment_reason": "shipping_cost_shock"
+    },
+    "decision": {
+      "action": "send_discount_nudge",
+      "detail": "One-time 10% discount code, single use, no stacking.",
+      "reasoning": "Shipping cost revealed late in checkout is a well-documented drop-off cause. A shipping-offset discount directly addresses it."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Vikram, hume pata hai shipping cost thoda zyada laga hoga. Isliye aapke liye 10% off ka code hai jo shipping cost cover karne mein madad karega: SAVE10. Aapka cart (₹3,104) abhi bhi ready hai: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_v9A4c9L1Br",
+    "processed_at": "2026-09-02T08:37:49.733Z",
+    "checkout": {
+      "id": "chk__XyzEDeZArycR4",
+      "customer_id": "cust_XXVAeCbd1U",
+      "customer_name": "Divya Menon",
+      "cart_items": 4,
+      "cart_value": 222800,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "price_hesitation",
+      "minutes_since_abandonment": 2432,
+      "device": "mobile",
+      "created_at": "2026-08-31T16:05:49.727Z"
+    },
+    "classification": {
+      "category": "price_hesitation",
+      "label": "Price hesitation",
+      "nudgeType": "discount",
+      "rationale": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here.",
+      "abandonment_reason": "price_hesitation"
+    },
+    "decision": {
+      "action": "send_discount_nudge",
+      "detail": "One-time 10% discount code, single use, no stacking.",
+      "reasoning": "Cart was full but the customer stalled at the price. A modest, one-time discount is the standard lever here."
+    },
+    "result": {
+      "outcome": "still_abandoned",
+      "recovered": false,
+      "note": "Nudge sent, cart still abandoned as of this run."
+    },
+    "message": {
+      "language": "hi-Latn",
+      "text": "Namaste Divya, aapka cart (₹2,228) abhi bhi humare paas saved hai! Special ke taur par, aapke liye 10% off ka code hai: SAVE10. Ye offer thodi der ke liye hi valid hai — jaldi checkout kar lein: [checkout link]"
+    }
+  },
+  {
+    "audit_id": "chkaudit_2USiQH85jj",
+    "processed_at": "2026-09-02T08:37:49.733Z",
+    "checkout": {
+      "id": "chk_hJ6O6EA-A0hyDI",
+      "customer_id": "cust_quI0PBzPIt",
+      "customer_name": "Kabir Joshi",
+      "cart_items": 5,
+      "cart_value": 4837700,
+      "currency": "INR",
+      "status": "abandoned",
+      "abandonment_reason": "comparison_shopping",
+      "minutes_since_abandonment": 2488,
+      "device": "mobile",
+      "created_at": "2026-08-31T15:09:49.727Z"
+    },
+    "classification": {
+      "category": "comparison_shopping",
+      "label": "Comparison shopping",
+      "nudgeType": "reminder",
+      "rationale": "Customer is likely evaluating alternatives. A discount here just erodes margin without changing the decision - a gentle reminder is the bounded choice.",
+      "abandonment_reason": "comparison_shopping"
+    },
+    "decision": {
+      "action": "notify_sales_human",
+      "detail": "Cart value is high (48,377 INR) - routed to a human, not an automated discount.",
+      "reasoning": "High-value carts get a human touch rather than a blanket automated offer."
+    },
+    "result": {
+      "outcome": "escalated",
+      "recovered": false,
+      "note": "Handed off to a human for high-touch outreach."
+    },
+    "message": null
+  },
+  {
     "audit_id": "chkaudit_1KuFXunq80",
     "processed_at": "2026-09-01T11:11:47.900Z",
     "checkout": {
